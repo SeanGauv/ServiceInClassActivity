@@ -50,7 +50,11 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<Button>(R.id.startButton).setOnClickListener {
             if (isConnected) {
-                timerBinder.start(10)
+                if (timerBinder.isRunning){
+                    timerBinder.pause()
+                } else {
+                    timerBinder.start(10)
+                }
             }
         }
 
